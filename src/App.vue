@@ -38,6 +38,10 @@ body,
   main {
     display: flex;
     flex: 1;
+    min-width: 1024px;
+    max-width: 1440px;
+    width: 100%;
+    align-self: center;
     .preview {
       flex: 1;
       margin: 16px;
