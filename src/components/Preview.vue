@@ -6,6 +6,6 @@
 
 <style>
 #preview {
-  border: 1px solid #090;
+
 }
 </style>

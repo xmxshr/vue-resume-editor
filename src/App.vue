@@ -24,6 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
+$boxShadow: 0 0 3px rgba(0, 0, 0, 0.4);
 html,
 body,
 #app {
@@ -35,6 +36,12 @@ body,
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   flex-direction: column;
+  background: #eee;
+  .topbar {
+    z-index: 1;
+    box-shadow: $boxShadow;
+    background: #fff;
+  }
   main {
     display: flex;
     flex: 1;
@@ -42,12 +49,20 @@ body,
     max-width: 1440px;
     width: 100%;
     align-self: center;
+
     .preview {
       flex: 1;
       margin: 16px;
+      border-radius: 3px;
+      box-shadow: $boxShadow;
+      background: #fff;
     }
     .editor {
+      width: 30em;
       margin: 16px 0 16px 16px;
+      border-radius: 3px;
+      box-shadow: $boxShadow;
+      background: #fff;
     }
   }
 }

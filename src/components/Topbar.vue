@@ -1,12 +1,23 @@
 <template>
   <div id="topbar">
-    我是topbar
+    <div class="logo">
+      Resume
+    </div>
+    <div class="action">
+      <el-button type="primary" size="small">注册</el-button>
+      <el-button size="small">登录</el-button>
+    </div>
   </div>
 </template>
 
-<style>
+<style lang='scss'>
 #topbar {
-  box-shadow: 0 0 3px rgba(0,0,0,0.3);
-  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 32px;
+  align-items: center;
+  .logo {
+    font-size: 22px;
+  }
 }
 </style>

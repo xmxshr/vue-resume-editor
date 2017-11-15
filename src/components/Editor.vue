@@ -6,7 +6,7 @@
 
 <style>
 #editor {
-  border: 1px solid #099;
-  width: 30em;
+
+  
 }
 </style>
