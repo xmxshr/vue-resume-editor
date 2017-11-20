@@ -50,18 +50,22 @@
 <script>
 import ArrayEditor from './ArrayEditor'
 import ObjectEditor from './ObjectEditor'
+import {mapState} from 'vuex'
+
+
 export default {
-  data() {
-    return {
-      currentTab: 0,
-      icons: ["id", "work", "book", "heart", "cup", "phone", "add"],
-      profile: { name: "1", birth: "2", city: "3" },
-      workExperience: [{ company: "", content: "" }],
-      study: [{school: "", time: "", degree: ""}],
-      project: [{name: "", content: ""}],
-      awards: [{name: "", content: ""}],
-      contact: { qq: "", wechat: "", phone: "", email: ""}
-    }
+  computed: {
+    currentTab: {
+      get(){
+        return this.$store.state.currentTab
+      },
+      set(value){
+        return this.$store.commit('swithTab', value)
+      }
+    },
+    ...mapState([
+      'icons', 'profile', 'workExperience', 'study', 'project', 'awards', 'contact'
+    ])
   },
   components:{
     ArrayEditor, ObjectEditor
