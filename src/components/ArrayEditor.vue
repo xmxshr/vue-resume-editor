@@ -3,38 +3,42 @@
     <h2>{{title}}</h2>
     <ol>
       <li v-for="(item, index) in items" :key="index">
-        <el-form :label-position="'top'" label-width="80px" :model="item">
-          <el-form-item v-for="key in keys" :key="key" :label="labels[key] || key">
-            <el-input v-model="item[key]"></el-input>
-          </el-form-item>
-        </el-form>
+        <div class="resumeField" v-for="key in keys" :key="key">
+          <label>{{labels[key] || key}}</label>
+          <input type="text" :value="items[key]" @input="changeResume(name, index, key, $event.target.value)">
+        </div>
         <el-button type="danger"  size="small"
-          @click="removeItem(index)">删除</el-button>
+          @click="removeItem(name, index)">删除</el-button>
       </li>
     </ol>
     <el-button type="primary" size="small" class="add-item"
-      @click="addItem">添加一项</el-button>
+      @click="addItem(name)">添加一项</el-button>
   </div>
 </template>
 
 <script>
 export default {
-  props:['items', 'title', 'labels'],
+  props:['items', 'title', 'labels', 'name'],
   computed:{
     keys(){
       return Object.keys(this.items[0])
     }
   },
   methods: {
-    addItem() {
-      const newItem = {}
-      this.keys.map((key)=>{
-        newItem[key] = ''
+    addItem(item) {
+      this.$store.commit('addItem', {
+        item
       })
-      this.items.push(newItem)
     },
-    removeItem(index) {
-      this.items.splice(index, 1)
+    removeItem(item, index) {
+      this.$store.commit('removeItem', {
+        item, index
+      })
+    },
+    changeResume(item, index, key, value){
+      this.$store.commit('updateArrayResume',{
+        item, index, key, value
+      })
     }
   }
 }

@@ -9,7 +9,7 @@ export default new Vuex.Store({
     icons: ["id", "work", "book", "heart", "cup", "phone", "add"],
     profile: { name: "", birth: "", city: "" },
     workExperience: [{ company: "", content: "" }],
-    study: [{school: "", time: "", degree: ""}],
+    education: [{school: "", time: "", degree: ""}],
     project: [{name: "", content: ""}],
     awards: [{name: "", content: ""}],
     contact: { qq: "", wechat: "", phone: "", email: ""}
@@ -17,6 +17,23 @@ export default new Vuex.Store({
   mutations: {
     swithTab(state, payload){
       state.currentTab = payload
-    }
+    },
+    updateArrayResume(state, {item, index, key, value}){
+      state[item][index][key] = value
+    },
+    updateObjectResume(state, {item, key, value}){
+      state[item][key] = value
+    },
+    addItem(state, {item}) {
+      const newItem = {}
+      let keys = Object.keys(state[item][0])
+      keys.map((key)=>{
+        newItem[key] = ''
+      })
+      state[item].push(newItem)
+    },
+    removeItem(state, {item, index}) {
+      state[item].splice(index, 1)
+    },
   }
 })

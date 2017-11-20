@@ -1,20 +1,26 @@
 <template>
   <div>
     <h2>{{title}}</h2>
-    <el-form :label-position="'top'" label-width="80px" :model="items">
-      <el-form-item v-for="key in keys" :key="key" :label="labels[key] || key">
-        <el-input v-model="items[key]"></el-input>
-      </el-form-item>
-    </el-form>
+    <div class="resumeField" v-for="key in keys" :key="key">
+      <label>{{labels[key] || key}}</label>
+      <input type="text" :value="items[key]" @input="changeResume(name, key, $event.target.value)">
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["items", "labels", "title"],
+  props: ["items", "labels", "title", "name"],
   computed: {
     keys() {
       return Object.keys(this.items)
+    }
+  },
+  methods: {
+    changeResume(item, key, value){
+      this.$store.commit('updateObjectResume',{
+        item, key, value
+      })
     }
   }
 }
