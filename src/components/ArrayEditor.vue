@@ -3,9 +3,9 @@
     <h2>{{title}}</h2>
     <ol>
       <li v-for="(item, index) in items" :key="index">
-        <div class="resumeField" v-for="key in keys" :key="key">
+        <div class="resumeField" v-for="(value, key) in item" :key="key">
           <label>{{labels[key] || key}}</label>
-          <input type="text" :value="items[key]" @input="changeResume(name, index, key, $event.target.value)">
+          <input type="text" :value="value" @input="changeResume(name, index, key, $event.target.value)">
         </div>
         <el-button type="danger"  size="small"
           v-show="items.length>1"
@@ -20,11 +20,6 @@
 <script>
 export default {
   props:['items', 'title', 'labels', 'name'],
-  computed:{
-    keys(){
-      return Object.keys(this.items[0])
-    }
-  },
   methods: {
     addItem(item) {
       this.$store.commit('addItem', {
