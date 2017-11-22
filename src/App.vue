@@ -13,6 +13,8 @@ import Topbar from "./components/Topbar";
 import Editor from "./components/Editor";
 import Preview from "./components/Preview";
 import store from './store/index'
+import getUser from './assets/getUser'
+import AV from './assets/leancloud'
 
 export default {
   name: "app",
@@ -28,6 +30,7 @@ export default {
       state = JSON.parse(state)
     }
     this.$store.commit('initState', state)
+    this.$store.commit('setUser', getUser())
   }
 };
 </script>
@@ -58,7 +61,7 @@ body,
     box-shadow: $boxShadow;
     background: #fff;
   }
-  main {
+  >main {
     display: flex;
     flex: 1;
     min-width: 1024px;

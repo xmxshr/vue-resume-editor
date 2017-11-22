@@ -12,7 +12,8 @@ export default new Vuex.Store({
     education: [{school: "", time: "", degree: ""}],
     project: [{name: "", content: ""}],
     awards: [{name: "", content: ""}],
-    contact: { qq: "", wechat: "", phone: "", email: ""}
+    contact: { qq: "", wechat: "", phone: "", email: ""},
+    user:{username: "", id: ""}
   },
   mutations: {
     initState(state, payload){
@@ -41,5 +42,11 @@ export default new Vuex.Store({
     removeItem(state, {item, index}) {
       state[item].splice(index, 1)
     },
+    setUser(state,payload){
+      Object.assign(state.user, payload)
+    },
+    removeUser(state){
+      state.user.id = null
+    }
   }
 })
