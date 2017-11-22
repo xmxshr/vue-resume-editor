@@ -15,14 +15,20 @@ export default new Vuex.Store({
     contact: { qq: "", wechat: "", phone: "", email: ""}
   },
   mutations: {
+    initState(state, payload){
+      Object.assign(state, payload)
+    },
     swithTab(state, payload){
       state.currentTab = payload
+      localStorage.setItem('state', JSON.stringify(state))
     },
     updateArrayResume(state, {item, index, key, value}){
       state[item][index][key] = value
+      localStorage.setItem('state', JSON.stringify(state))
     },
     updateObjectResume(state, {item, key, value}){
       state[item][key] = value
+      localStorage.setItem('state', JSON.stringify(state))
     },
     addItem(state, {item}) {
       const newItem = {}

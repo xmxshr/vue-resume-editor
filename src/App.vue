@@ -21,6 +21,13 @@ export default {
     Topbar,
     Editor,
     Preview
+  },
+  created(){
+    let state = localStorage.getItem('state')
+    if(state){
+      state = JSON.parse(state)
+    }
+    this.$store.commit('initState', state)
   }
 };
 </script>

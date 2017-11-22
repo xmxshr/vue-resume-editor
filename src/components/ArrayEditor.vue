@@ -8,6 +8,7 @@
           <input type="text" :value="items[key]" @input="changeResume(name, index, key, $event.target.value)">
         </div>
         <el-button type="danger"  size="small"
+          v-show="items.length>1"
           @click="removeItem(name, index)">删除</el-button>
       </li>
     </ol>
