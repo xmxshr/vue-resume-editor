@@ -15,7 +15,7 @@
       <li :class="{active: currentTab === 0}">
        <ObjectEditor :items="profile" 
           :title="'个人信息'" :name="'profile'"
-          :labels="{name: '姓名', birth: '出生日期', city: '城市'}" />
+          :labels="{name: '姓名', birth: '出生日期', city: '城市', for: '应聘职位'}" />
       </li>
       <li :class="{active: currentTab === 1}">
         <ArrayEditor :items="workExperience" 
