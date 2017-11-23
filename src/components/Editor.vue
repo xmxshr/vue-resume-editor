@@ -20,12 +20,12 @@
       <li :class="{active: currentTab === 1}">
         <ArrayEditor :items="workExperience" 
           :title="'工作经历'" :name="'workExperience'"
-          :labels="{company:'公司名称', content: '工作内容'}" />
+          :labels="{company:'公司名称', time: '时间', content: '工作内容'}" />
       </li>
       <li :class="{active: currentTab === 2}">
         <ArrayEditor :items="education" 
-          :title="'学习经历'" :name="'education'"
-          :labels="{school: '学校名称', time: '学习时间', degree: '学历'}" />
+          :title="'教育背景'" :name="'education'"
+          :labels="{school: '学校名称', time: '时间', degree: '学历'}" />
       </li>
       <li :class="{active: currentTab === 3}">
         <ArrayEditor :items="project" 

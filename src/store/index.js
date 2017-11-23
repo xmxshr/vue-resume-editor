@@ -8,7 +8,7 @@ export default new Vuex.Store({
     currentTab: 0,
     icons: ["id", "work", "book", "heart", "cup", "phone", "add"],
     profile: { name: "", birth: "", city: "" },
-    workExperience: [{ company: "", content: "" }],
+    workExperience: [{ company: "", time: "", content: "" }],
     education: [{school: "", time: "", degree: ""}],
     project: [{name: "", content: ""}],
     awards: [{name: "", content: ""}],
