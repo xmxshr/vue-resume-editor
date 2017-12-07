@@ -4,16 +4,17 @@
       Resume
     </div>
     <div class="action">
-      <div v-if="logined">
+      <router-link class="el-button el-button--primary el-button--small" to="/preview">预览</router-link>
+      <span v-if="logined">
         <span>你好， {{user.username}}</span>
         <el-button size="small" @click.prevent="signOut">登出</el-button>     
-      </div>
-      <div v-else>
+      </span>
+      <span v-else>
         <el-button type="primary" size="small" 
           @click.prevent="signUpDialogVisible = true">注册</el-button>
         <el-button size="small" 
           @click.prevent="signInDialogVisible = true">登录</el-button>
-      </div>
+      </span>
       <SignDialog :title="'注册'" :visible = "signUpDialogVisible"
         @close="signUpDialogVisible = false">
         <SignUpForm @success="signIn($event)"/>

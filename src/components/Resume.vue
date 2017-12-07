@@ -10,8 +10,8 @@
 
 <script>
 import Topbar from "./Topbar"
-import Editor from "./Editor"
-import Preview from "./Preview"
+import Editor from "./ResumeEditor"
+import Preview from "./ResumePreview"
 
 export default {
   components: {
