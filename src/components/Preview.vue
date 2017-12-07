@@ -1,16 +1,16 @@
 <template>
   <div id="preview">
     <div class="profile">
-      <h1>{{profile.name}}</h1>
+      <h1>{{resume.profile.name}}</h1>
       <p>
-        <span>{{profile.birth}}</span>
-        <span> | {{profile.city}}</span>
-        <span> | {{profile.for}}</span>
+        <span>{{resume.profile.birth}}</span>
+        <span> | {{resume.profile.city}}</span>
+        <span> | {{resume.profile.for}}</span>
       </p>
     </div>
     <div class="resumeField fieldTitle">
       <h2><span>工作经历</span></h2>
-      <div class="item-ct" v-for="(item, index) in workExperience" :key="index">
+      <div class="item-ct" v-for="(item, index) in resume.workExperience" :key="index">
         <p class="time">{{item.time}}</p>
         <div class="part">
           <h4>{{item.company}}</h4>
@@ -20,7 +20,7 @@
     </div>
     <div class="resumeField fieldTitle">
       <h2><span>教育背景</span></h2>
-      <div class="item-ct" v-for="(item, index) in education" :key="index">
+      <div class="item-ct" v-for="(item, index) in resume.education" :key="index">
           <p class="time">{{item.time}}</p>
           <p class="time">{{item.school}}</p>
           <p class="time">{{item.degree}}</p>
@@ -29,7 +29,7 @@
     </div>
     <div class="resumeField fieldTitle">
       <h2><span>项目经历</span></h2>
-      <div class="item-ct" v-for="(item, index) in project" :key="index">
+      <div class="item-ct" v-for="(item, index) in resume.project" :key="index">
         <div class="part">
           <h4>{{item.name}}</h4>
           <p>{{item.content}}</p>
@@ -38,7 +38,7 @@
     </div>
     <div class="resumeField fieldTitle">
       <h2><span>获奖情况</span></h2>
-      <div class="item-ct" v-for="(item, index) in awards" :key="index">
+      <div class="item-ct" v-for="(item, index) in resume.awards" :key="index">
         <div class="part">
           <h4>{{item.name}}</h4>
           <p>{{item.content}}</p>
@@ -47,10 +47,10 @@
     </div>
     <div class="contact fieldTitle">
       <h2><span>联系方式</span></h2>
-      <p>QQ：{{contact.qq}}</p>
-      <p>微信：{{contact.wechat}}</p>
-      <p>电话：{{contact.phone}}</p>
-      <p>邮箱：{{contact.email}}</p>
+      <p>QQ：{{resume.contact.qq}}</p>
+      <p>微信：{{resume.contact.wechat}}</p>
+      <p>电话：{{resume.contact.phone}}</p>
+      <p>邮箱：{{resume.contact.email}}</p>
     </div>
   </div>
 </template>
@@ -61,7 +61,7 @@ import {mapState} from 'vuex'
 export default {
   computed: {
     ...mapState([
-      'profile', 'workExperience', 'education', 'project', 'awards', 'contact'
+      'resume'
     ])
   }
 }

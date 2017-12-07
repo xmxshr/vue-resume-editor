@@ -2,7 +2,7 @@
   <div id="editor">
     <nav>
       <ol>
-        <li :key="i" v-for="i in [0,1,2,3,4,5,6]"
+        <li :key="i" v-for="i in [0,1,2,3,4,5]"
           :class="{active: currentTab === i}"
           @click="currentTab = i">
           <svg class="icon">
@@ -13,36 +13,41 @@
     </nav>
     <ol class="content">
       <li :class="{active: currentTab === 0}">
-       <ObjectEditor :items="profile" 
+       <ObjectEditor :items="resume.profile" 
           :title="'个人信息'" :name="'profile'"
+          :labelKey="resumeConfig.profile.keys"
           :labels="{name: '姓名', birth: '出生日期', city: '城市', for: '应聘职位'}" />
       </li>
       <li :class="{active: currentTab === 1}">
-        <ArrayEditor :items="workExperience" 
+        <ArrayEditor :items="resume.workExperience" 
           :title="'工作经历'" :name="'workExperience'"
+          :labelKey="resumeConfig.workExperience.keys"
           :labels="{company:'公司名称', time: '时间', content: '工作内容'}" />
       </li>
       <li :class="{active: currentTab === 2}">
-        <ArrayEditor :items="education" 
+        <ArrayEditor :items="resume.education" 
           :title="'教育背景'" :name="'education'"
+          :labelKey="resumeConfig.education.keys"
           :labels="{school: '学校名称', time: '时间', degree: '学历'}" />
       </li>
       <li :class="{active: currentTab === 3}">
-        <ArrayEditor :items="project" 
+        <ArrayEditor :items="resume.project" 
           :title="'项目经历'" :name="'project'"
+          :labelKey="resumeConfig.project.keys"
           :labels="{name: '项目名称', content: '具体内容'}" />
       </li>
       <li :class="{active: currentTab === 4}">
-        <ArrayEditor :items="awards" 
+        <ArrayEditor :items="resume.awards" 
           :title="'获奖情况'" :name="'awards'"
+          :labelKey="resumeConfig.awards.keys"
           :labels="{name: '获奖名称', content: '详细情况'}" />
       </li>
       <li :class="{active: currentTab === 5}">
-        <ObjectEditor :items="contact" 
+        <ObjectEditor :items="resume.contact" 
           :title="'联系方式'" :name="'contact'"
+          :labelKey="resumeConfig.contact.keys"
           :labels="{qq: 'QQ', wechat: '微信', phone: '电话', email: '邮箱'}" />
       </li>
-      <li :class="{active: currentTab === 6}">其他</li> 
     </ol>
   </div>
 </template>
@@ -64,7 +69,7 @@ export default {
       }
     },
     ...mapState([
-      'icons', 'profile', 'workExperience', 'education', 'project', 'awards', 'contact'
+      'icons', 'resumeConfig', 'resume'
     ])
   },
   components:{

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{title}}</h2>
-    <div class="resumeField" v-for="key in keys" :key="key">
+    <div class="resumeField" v-for="key in labelKey" :key="key">
       <div>
         <label>{{labels[key] || key}}</label>
         <el-button type="danger"  size="mini"
@@ -14,12 +14,7 @@
 
 <script>
 export default {
-  props: ["items", "labels", "title", "name"],
-  computed: {
-    keys() {
-      return Object.keys(this.items)
-    }
-  },
+  props: ["items", "labels", "title", "name","labelKey"],
   methods: {
     changeResume(item, key, value){
       this.$store.commit('updateObjectResume',{
