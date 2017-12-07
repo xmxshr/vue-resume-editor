@@ -1,27 +1,15 @@
 <template>
-  <div id="app">
-    <Topbar class="topbar" />
-    <main>
-      <Editor class="editor" />
-      <Preview class="preview" />
-    </main>
-  </div>
+  <router-view />
 </template>
 
 <script>
-import Topbar from "./components/Topbar"
-import Editor from "./components/Editor"
-import Preview from "./components/Preview"
-import store from './store/index'
+
 import getUser from './assets/getUser'
 import AV from './assets/leancloud'
 
 export default {
   name: "app",
-  store,
-  components: {
-    Topbar, Editor, Preview
-  },
+
   created(){
     let state = localStorage.getItem('state')
     if(state){

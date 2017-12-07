@@ -1,14 +1,14 @@
 <template>
   <div id="preview">
-    <div class="profile">
+    <section class="profile">
       <h1>{{resume.profile.name}}</h1>
       <p>
         <span>{{resume.profile.birth}}</span>
         <span> | {{resume.profile.city}}</span>
         <span> | {{resume.profile.for}}</span>
       </p>
-    </div>
-    <div class="resumeField fieldTitle">
+    </section>
+    <section class="resumeField fieldTitle">
       <h2><span>工作经历</span></h2>
       <div class="item-ct" v-for="(item, index) in resume.workExperience" :key="index">
         <p class="time">{{item.time}}</p>
@@ -17,8 +17,8 @@
           <p>{{item.content}}</p>
         </div>
       </div>
-    </div>
-    <div class="resumeField fieldTitle">
+    </section>
+    <section class="resumeField fieldTitle">
       <h2><span>教育背景</span></h2>
       <div class="item-ct" v-for="(item, index) in resume.education" :key="index">
           <p class="time">{{item.time}}</p>
@@ -26,8 +26,8 @@
           <p class="time">{{item.degree}}</p>
         
       </div>
-    </div>
-    <div class="resumeField fieldTitle">
+    </section>
+    <section class="resumeField fieldTitle">
       <h2><span>项目经历</span></h2>
       <div class="item-ct" v-for="(item, index) in resume.project" :key="index">
         <div class="part">
@@ -35,8 +35,8 @@
           <p>{{item.content}}</p>
         </div>
       </div>
-    </div>
-    <div class="resumeField fieldTitle">
+    </section>
+    <section class="resumeField fieldTitle">
       <h2><span>获奖情况</span></h2>
       <div class="item-ct" v-for="(item, index) in resume.awards" :key="index">
         <div class="part">
@@ -44,14 +44,14 @@
           <p>{{item.content}}</p>
         </div>
       </div>
-    </div>
-    <div class="contact fieldTitle">
+    </section>
+    <section class="contact fieldTitle">
       <h2><span>联系方式</span></h2>
       <p>QQ：{{resume.contact.qq}}</p>
       <p>微信：{{resume.contact.wechat}}</p>
       <p>电话：{{resume.contact.phone}}</p>
       <p>邮箱：{{resume.contact.email}}</p>
-    </div>
+    </section>
   </div>
 </template>
 
