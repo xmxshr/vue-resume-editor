@@ -58,12 +58,13 @@ export default new Vuex.Store({
       // localStorage.setItem('state', JSON.stringify(state))
     },
     addItem(state, {item}) {
-      const newItem = {}
-      let keys = Object.keys(state.resumeConfig[item].keys)
-      keys.map((key)=>{
-        newItem[key] = ''
-      })
+      let newItem = {}
       state.resume[item].push(newItem)
+      let keys = state.resumeConfig[item].keys
+      keys.map((key)=>{
+        Vue.set(newItem, key, '')
+      })
+     
       // localStorage.setItem('state', JSON.stringify(state))
     },
     removeItem(state, {item, index}) {
