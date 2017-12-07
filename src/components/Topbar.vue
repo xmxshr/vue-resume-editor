@@ -55,10 +55,12 @@ export default {
       this.signUpDialogVisible = false
       this.signInDialogVisible = false
       this.$store.commit('setUser', {user})
+      window.location.reload()
     },
     signOut(){
       AV.User.logOut()
       this.$store.commit('removeUser')
+      window.location.reload()
     }
   }
 }
